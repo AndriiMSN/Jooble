@@ -72,10 +72,12 @@ for(var i = 0; i < elems.length; i++) {
 
             $(elem).css('border', '5px solid black');
             }
-            },0);;
+            },10);;
    
     })(i);
 }},0);
+
+window.setInterval(function(){
     $("#field_3").keyup(function(){
        span  = document.querySelector("#kn-input-field_3 > label > span");
        el = this;
@@ -86,6 +88,8 @@ for(var i = 0; i < elems.length; i++) {
                $(this).show();                
         });
     });
+}, 5000);
+ 
 
  
 
