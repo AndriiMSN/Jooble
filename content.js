@@ -66,13 +66,15 @@ for(var i = 0; i < elems.length; i++) {
         elem.onclick = function() {
             var id = elem.getAttribute("id");
             console.log(id);
-                        $('tr').css('border', '1px solid #dbdbdb');
+            $('tr').css('transition', '.1s'); 
+            $('tr').css('box-sizing', 'border-box');            
+            $('tr').css('border', '1px solid #dbdbdb');
             z.innerText = id;
         };
          setInterval(function (){    
             if(elem.id === z.innerText & elem.id !== "") {
 
-            $(elem).css('border', '5px solid black');
+            $(elem).css('border', '3px solid black');
             }
             },10);;
    
