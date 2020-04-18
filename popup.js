@@ -1,6 +1,4 @@
 
-/* КОПИРАВНИЕ С ТЕКСТАРЕА */
-
 var button = document.getElementById('userButton');
 button.addEventListener('click', function () {
   var ta = document.getElementById('cont');
