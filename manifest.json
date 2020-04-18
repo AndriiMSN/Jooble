@@ -1,7 +1,7 @@
 {
     "name": "Jooble helper",
     "description" : "powered by MAS",
-    "version": "1.0",
+    "version": "4.0",
     "manifest_version": 2,
     "permissions": ["storage","activeTab"],
     "content_scripts": [{
