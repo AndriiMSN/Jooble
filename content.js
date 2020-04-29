@@ -53,33 +53,78 @@ document.body.appendChild(styleTable);
 
 
 //УСТАНОВКА БОРДЮРЫ НА ТЕКУЩЕЙ СТРОКЕ ТАБЛИЦЫ
-
-    window.setInterval(function(){
+window.setTimeout(function () {
     var newEl = document.createElement('div');
     newEl.id = "current";
-    newEl.style.cssText = "display:block";
-    var tbl = document.querySelector("#field_136");
-    tbl.before(newEl);
-    var elems = document.querySelectorAll('tr');             
-    for(var i = 0; i < elems.length; i++) {
-        (function(i) {
-            var elem = elems[i];
-            var z = document.getElementById('current');
-                elem.onclick = function() {
-                    var id = elem.getAttribute("id");
-                    console.log(id);
-                    $('tr').css('border', '1px solid #dbdbdb');
-                    z.innerText = id;
-                };
-                setInterval(function (){    
-                    if(elem.id === z.innerText & elem.id !== "") {
-                        $(elem).css('border', '3px solid black');
-                    }
-                },10);
-   
-        })(i);
+    newEl.style.cssText = "display:none";
+    var tbl = document.querySelector("#knack-logo");
+        if (tbl == null) {
+            return false
+        }
+        else {
+        tbl.before(newEl);
+        }
+}, 4000)
+
+
+window.setTimeout(function () {
+    var z = document.getElementById('current');
+        if (z == null) {
+        return false
+        }
+        else {
+        window.setInterval(function () {
+            var elems = document.querySelectorAll('tr');
+                for (var i = 0; i < elems.length; i++) {
+                    (function (i) {
+                        var elem = elems[i];
+                            if (elem.id === z.innerText & elem.id !== "") {
+                                 //$(elem).css('border', '3px solid black');
+                                $(elem).css('background', 'aquamarine');
+                            }
+                            //При клике
+                            elem.onclick = function () {
+                                var id = elem.getAttribute("id");
+                                console.log(id);
+                                // $('tr').css('border', '1px solid #dbdbdb');
+                                $('tr').css('background', 'none');
+                                z.innerText = id;
+                            };
+                    })(i);
+                }
+        }, 00)
+        }//else
+}, 4100)
+
+/*
+const sleep=(ms)=>new Promise((r)=>setTimeout(r, ms));
+const init=async()=>{
+    while($('#current').length === 0){
+        await sleep(1000);
+        $('#knack-logo').before(`<div id="current" style="display:none;"></div>`);
     }
-    },0);
+    doIt();
+     setInterval(doIt, 1000);
+};
+const doIt=()=>{
+    const $zet = $('#current');
+    if($zet.length === 0)return false;
+    for(const elem of $('body').find('tr')){
+        const $el = $(elem);
+        if($el.attr('id') === $zet.text() && $el.attr('id') !== ''){
+            $el.css('background', 'aquamarine');
+        }
+        $el.click(({currentTarget})=>{
+            const id = $(currentTarget).attr('id');
+            console.log(id);
+            $('tr').css('background', 'none');
+            $zet.text(id);
+        });
+    }
+};
+window.onload=()=>init();
+*/
+
 
  // ЖИВОЙ ПОИСК ПО ТАБИЦЕ   
 
